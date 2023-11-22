@@ -19,3 +19,7 @@ destination_directory: The directory on the destination server to copy the files
 NOTE: 'cores' should be the lower number of cores available between the source and destination server.
 
 Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
+
+after that logout and login again to your shell and the icp will be functional
+
+enjoy
