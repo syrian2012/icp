@@ -1,0 +1,51 @@
+icp() {
+  local OPTIND opt
+  local port=22
+  local cores=4
+
+  while getopts ":hp:c:" opt; do
+    case ${opt} in
+      h )
+        echo "icp - Fastest way to copy files/directories over the internet based on SSH."
+        echo
+        echo "Usage: icp -p port -c cores source_directory destination_server destination_directory"
+        echo
+        echo "source_directory: The directory on the local machine to copy."
+        echo "destination_server: The server to copy the files to."
+        echo "destination_directory: The directory on the destination server to copy the files to."
+        echo "-p (optional): The SSH port to use. Defaults to 22 if not provided."
+        echo "-c (optional): The number of cores to use. Defaults to 4 if not provided."
+        echo "NOTE: 'cores' should be the lower number of cores available between the source and destination server."
+        echo
+        echo "Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir"
+        return 0
+        ;;
+      p )
+        port=$OPTARG
+        ;;
+      c )
+        cores=$OPTARG
+        ;;
+      \? )
+        echo "Invalid option: $OPTARG" 1>&2
+        return 1
+        ;;
+      : )
+        echo "Invalid option: $OPTARG requires an argument" 1>&2
+        return 1
+        ;;
+    esac
+  done
+  shift $((OPTIND -1))
+
+  if [ $# -lt 3 ]; then
+    echo "Missing arguments. Use -h for help."
+    return 1
+  fi
+
+  source_dir=$1
+  dest_server=$2
+  dest_path=$3
+
+  tar cf - "$source_dir" | pigz -p "$cores" | ssh -p "$port" "$dest_server" "cd $dest_path && unpigz -p $cores | tar xf -"
+}
