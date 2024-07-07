@@ -12,4 +12,6 @@ source_directory: The directory on the local machine to copy. destination_server
 
 Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
 
+issues: you may face issues with the dependences (ssh, pigz, tar) you could install them before installing this pakage or if you use apt you can use this command (apt --fix-broken install) after installing the package to fix the dependences installation
+
 enjoy with Love Mohammad Haidar
