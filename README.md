@@ -1,4 +1,3 @@
-#icp
 icp - Fastest way to copy files/directories over the internet based on SSH.
 
 how it works
@@ -14,5 +13,3 @@ source_directory: The directory on the local machine to copy. destination_server
 Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
 
 enjoy with Love Mohammad Haidar
-
-github: https://github.com/syrian2012/icp
