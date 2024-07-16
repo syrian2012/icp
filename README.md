@@ -1,5 +1,5 @@
 # icp
-icp - Fastest way to copy files/directories over the internet based on SSH.
+icp (internet copy) - Fastest way to copy files/directories over the internet based on SSH.
 
 # how it works
 simply edit your .bashrc file inside your home directory and copy content of code to add in .bashrc file inside it or simply run the follwing it will do the job for you:<br>
