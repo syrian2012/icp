@@ -1,4 +1,4 @@
-icp - Fastest way to copy files/directories over the internet based on SSH.
+icp (internet copy) - Fastest way to copy files/directories over the internet based on SSH.
 
 how it works
 
