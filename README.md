@@ -14,4 +14,7 @@ Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
 
 issues: you may face issues with the dependences (ssh, pigz, tar) you could install them before installing this pakage or if you use apt you can use this command (apt --fix-broken install) after installing the package to fix the dependences installation
 
+## Contact
+For professional DevOps services, optimization, and consultation, contact me at mhd4.hz@gmail.com.
+
 ### enjoy with Love Mohammad Haidar
