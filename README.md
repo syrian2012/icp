@@ -14,11 +14,11 @@ Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
 
 ## installation
 1- download the package
-2- run "sudo apt install ./icp.deb"
+2- run "sudo dnf install ./icp-1.1-1.el9.noarch.rpm"
 
 ## Issues
-You may face issues with the dependences (ssh, pigz, tar, pv) you could install them before installing this pakage or if you use apt you can use this command (apt --fix-broken install) after installing the package to fix the dependences installation.
-if you faced other problems with package install you may do this: "sudo chmod 644 icp.deb" before install.
+You may face issues with the dependences (ssh, pigz, tar, pv) you could install them before installing this pakage.
+if you faced other problems with package install you may do this: "sudo chmod 644 icp-1.1-1.el9.noarch.rpm" before install.
 
 ## Contact
 For professional DevOps services, optimization, and consultation, contact me at mhd4.hz@gmail.com.

@@ -1,9 +1,0 @@
-Package: icp
-Version: 1.1
-Section: base
-Priority: optional
-Architecture: all
-Essential: no
-Maintainer: Mohammad Haidar mhd4.hz@gmail.com
-Depends: ssh, pigz, tar, pv
-Description: icp - Fastest way to copy files/directories over the internet based on SSH.
