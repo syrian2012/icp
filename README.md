@@ -14,6 +14,7 @@ Example: icp -p 22 -c 4 /home/user/mydir example.com /var/www/mydir
 
 ## installation
 1- download the package
+
 2- run "sudo dnf install ./icp-1.1-1.el9.noarch.rpm"
 
 ## Issues
