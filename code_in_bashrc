@@ -47,5 +47,13 @@ icp() {
   dest_server=$2
   dest_path=$3
 
-  tar cf - "$source_dir" | pigz -p "$cores" | ssh -p "$port" "$dest_server" "cd $dest_path && unpigz -p $cores | tar xf -"
+  # Calculate total size in bytes
+  if command -v pv &> /dev/null && command -v du &> /dev/null; then
+    total_size=$(du -sb "$source_dir" | awk '{print $1}')
+    echo "Total size to transfer: $(du -sh "$source_dir" | awk '{print $1}')"
+    tar cf - "$source_dir" | pv -s "$total_size" | pigz -p "$cores" | ssh -p "$port" "$dest_server" "cd $dest_path && unpigz -p $cores | tar xf -"
+  else
+    echo "Note: Install 'pv' for progress tracking. Continuing without it..."
+    tar cf - "$source_dir" | pigz -p "$cores" | ssh -p "$port" "$dest_server" "cd $dest_path && unpigz -p $cores | tar xf -"
+  fi
 }
